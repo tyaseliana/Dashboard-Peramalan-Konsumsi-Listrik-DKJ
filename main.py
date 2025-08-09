@@ -16,6 +16,9 @@ st.set_page_config(
 )
 
 # Judul dalam halaman: rata tengah + kata miring
+st.write("")
+st.write("")
+st.write("")
 st.markdown(
     """
     <h1 style="text-align: center;">
@@ -611,4 +614,5 @@ st.markdown("""
     <p><b>© 2025 Peramalan Konsumsi Listrik Daerah Khusus Jakarta<b/></p>
     <p><b>Eliana Mardiyaningtyas | Politeknik Statistika STIS</b></p>
 </div>
+
 """, unsafe_allow_html=True)
