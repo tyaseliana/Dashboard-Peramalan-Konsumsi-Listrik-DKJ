@@ -80,6 +80,30 @@ st.markdown("""
         flex-direction: column;
     }
 
+    /* Styling khusus untuk info boxes agar transparan putih */
+    .stAlert > div {
+        background-color: rgba(255, 255, 255, 0.5) !important;
+        color: #333 !important;
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;
+        border-radius: 12px !important;
+        backdrop-filter: blur(10px) !important;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    .stAlert [data-testid="stMarkdownContainer"] {
+        color: #333 !important;
+    }
+
+    .stAlert [data-testid="stMarkdownContainer"] p {
+        color: #333 !important;
+        font-weight: 500 !important;
+    }
+
+    .stAlert [data-testid="stMarkdownContainer"] strong {
+        color: #2a5298 !important;
+        font-weight: 700 !important;
+    }
+
     p, li {
         font-size: 1.1rem !important;
     }
@@ -359,13 +383,13 @@ with col1:
 
 with col2:
     st.info(
-        f"**📊 Informasi Konsumsi Listrik (kWh)**\n\n"
+        f"**🔍 Informasi**\n\n"
+        f"**🔺 Tertinggi:**\n"
+        f"{bulan_id[max_point['Date'].strftime('%b')]} {max_point['Date'].year}"
+        f"({format(int(max_point['Konsumsi']), ',').replace(',', '.')} kWh)\n\n"
         f"**🔻 Terendah:**\n"
         f"{bulan_id[min_point['Date'].strftime('%b')]} {min_point['Date'].year}\n"
-        f"({format(int(min_point['Konsumsi']), ',').replace(',', '.')})\n\n"
-        f"**🔺 Tertinggi:**\n"
-        f"{bulan_id[max_point['Date'].strftime('%b')]} {max_point['Date'].year}\n"
-        f"({format(int(max_point['Konsumsi']), ',').replace(',', '.')})"
+        f"({format(int(min_point['Konsumsi']), ',').replace(',', '.')} kWh)\n\n"
     )
 
 # ====================== Boxplot Distribusi ======================
@@ -421,13 +445,13 @@ if not filtered_boxplot_data.empty:
 
     with col2:
         st.info(
-            f"**📊 Informasi Median Konsumsi Listrik (kWh)**\n\n"
-            f"**🔻 Terendah:**\n"
-            f"bulan {bulan_id[lowest_median['Bulan']]}\n"
-            f"({format(int(lowest_median['Konsumsi']), ',').replace(',', '.')})\n\n"
+            f"**🔍 Informasi**\n\n"
             f"**🔺 Tertinggi:**\n"
-            f"bulan {bulan_id[highest_median['Bulan']]}\n"
-            f"({format(int(highest_median['Konsumsi']), ',').replace(',', '.')})"
+            f"{bulan_id[highest_median['Bulan']]}\n"
+            f"({format(int(highest_median['Konsumsi']), ',').replace(',', '.')} kWh)\n\n"
+            f"**🔻 Terendah:**\n"
+            f"{bulan_id[lowest_median['Bulan']]}\n"
+            f"({format(int(lowest_median['Konsumsi']), ',').replace(',', '.')} kWh)\n\n"
         )
 else:
     st.warning("Silakan pilih setidaknya satu bulan untuk menampilkan boxplot.")
@@ -469,7 +493,7 @@ with col1:
 
 with col2:
     st.info(
-        f"**Keterangan:**\n\n"
+        f"**🔍 Informasi**\n\n"
         f"Nilai **RMSE** dan **MAPE** yang **kecil** menunjukkan kualitas model yang **baik**.\n\n"
     )
 
