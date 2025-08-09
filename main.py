@@ -16,9 +16,6 @@ st.set_page_config(
 )
 
 # Judul dalam halaman: rata tengah + kata miring
-st.write("")
-st.write("")
-st.write("")
 st.markdown(
     """
     <h1 style="text-align: center;">
@@ -49,12 +46,17 @@ st.markdown("""
     }
 
     .block-container {
-        padding-top: 1rem !important;
+        padding-top: 5rem !important;
         padding-bottom: 0.5rem !important;
         padding-left: 10rem !important;
         padding-right: 10rem !important;
         font-size: 1.1rem !important;
         line-height: 1.6 !important;
+    }
+    
+    /* Tambahan untuk mengatasi header yang menutupi konten */
+    .main .block-container {
+        margin-top: 4rem !important;
     }
 
     .main-header {
@@ -149,25 +151,59 @@ st.markdown("""
         box-shadow: 0 0 0 2px rgba(42, 82, 152, 0.3) !important;
     }
 
-    /* Styling untuk dataframe */
+    /* Styling untuk dataframe dengan rounded corners */
     .stDataFrame {
         background-color: white !important;
+        border-radius: 15px !important;
+        overflow: hidden !important;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
     }
 
     .stDataFrame [data-testid="stDataFrame"] > div {
         background-color: white !important;
-        border-radius: 12px !important;
+        border-radius: 15px !important;
         overflow: hidden !important;
+        border: none !important;
     }
 
     .stDataFrame thead th {
         background-color: #2a5298 !important;
         color: white !important;
         font-weight: bold !important;
+        border: none !important;
     }
 
     .stDataFrame tbody td {
         background-color: white !important;
+        border: none !important;
+    }
+
+    /* Styling untuk plotly charts dengan rounded corners */
+    .js-plotly-plot .plotly .modebar {
+        border-radius: 8px !important;
+    }
+
+    .js-plotly-plot .plotly .main-svg {
+        border-radius: 15px !important;
+        overflow: hidden !important;
+    }
+
+    /* Container untuk grafik dengan shadow dan rounded */
+    .stPlotlyChart > div {
+        border-radius: 15px !important;
+        overflow: hidden !important;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+        background: white !important;
+        padding: 10px !important;
+    }
+
+    /* Styling untuk matplotlib charts */
+    .stPyplot > div {
+        border-radius: 15px !important;
+        overflow: hidden !important;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+        background: white !important;
+        padding: 10px !important;
     }
 
     /* Model table styling */
@@ -614,5 +650,4 @@ st.markdown("""
     <p><b>© 2025 Peramalan Konsumsi Listrik Daerah Khusus Jakarta<b/></p>
     <p><b>Eliana Mardiyaningtyas | Politeknik Statistika STIS</b></p>
 </div>
-
 """, unsafe_allow_html=True)
