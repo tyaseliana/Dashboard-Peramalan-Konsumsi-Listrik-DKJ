@@ -175,18 +175,18 @@ st.markdown("""
         box-shadow: 0 0 0 2px rgba(42, 82, 152, 0.3) !important;
     }
 
-    /* Styling untuk dataframe dengan rounded corners */
+    /* Styling untuk dataframe dengan rounded corners dan toolbar visible */
     .stDataFrame {
         background-color: white !important;
         border-radius: 15px !important;
-        overflow: hidden !important;
+        /* overflow: hidden !important; -- DIHAPUS */
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
     }
 
     .stDataFrame [data-testid="stDataFrame"] > div {
         background-color: white !important;
         border-radius: 15px !important;
-        overflow: hidden !important;
+        /* overflow: hidden !important; -- DIHAPUS */
         border: none !important;
     }
 
@@ -216,18 +216,20 @@ st.markdown("""
     .stPlotlyChart > div {
         border-radius: 15px !important;
         overflow: hidden !important;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+        box-shadow: 0 6px 6px rgba(0, 0, 0, 0.1) !important;
         background: white !important;
         padding: 10px !important;
+        padding-left: 3px !important; /* Padding kiri lebih kecil */
     }
 
     /* Styling untuk matplotlib charts */
     .stPyplot > div {
         border-radius: 15px !important;
         overflow: hidden !important;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+        box-shadow: 0 6px 6px rgba(0, 0, 0, 0.1) !important;
         background: white !important;
         padding: 10px !important;
+        padding-left: 3px !important; /* Padding kiri lebih kecil */
     }
 
     /* Model table styling */
@@ -652,7 +654,7 @@ with col1:
     <div class="metric-container">
         <div class="metric-card">
             <h4>Metode Peramalan</h4>
-            <p>Model terbaik untuk peramalan konsumsi listrik Provinsi DKJ adalah <i>hybrid</i> ARIMA-NN.</p>
+            <p>Model terbaik untuk peramalan konsumsi listrik Provinsi DKJ adalah <i>hybrid</i> ARIMA(1,0,1)(1,1,0,12)-ANN[8,50,1].</p>
         </div>
     </div>
 """, unsafe_allow_html=True)
